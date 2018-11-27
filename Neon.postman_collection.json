@@ -1,0 +1,125 @@
+{
+	"info": {
+		"_postman_id": "ede0bb49-22c0-4766-be5f-f01f752e878a",
+		"name": "Neon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Films",
+			"item": [
+				{
+					"name": "Get Films",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a85013e9-ffb8-44eb-9ff4-ce7d0c40f710",
+								"exec": [
+									"pm.test(\"Get title value\", function (){",
+									"    var titles = []",
+									"    var jsonData = pm.response.json()",
+									"    for (var i = 0; i < jsonData.count; i++){",
+									"        titles[i] = jsonData.results[i].title;",
+									"        console.log(titles[i]);",
+									"    }",
+									"});",
+									"",
+									"pm.test(\"Response is ok\", () => {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://swapi.co/api/films/",
+							"protocol": "http",
+							"host": [
+								"swapi",
+								"co"
+							],
+							"path": [
+								"api",
+								"films",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": " Get Planets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cfc30052-6489-4b73-942a-40257d010335",
+								"exec": [
+									"var count;",
+									"var url = pm.environment.get(\"URL\")",
+									"",
+									"pm.test(\"Get count\", function (){",
+									"    count = pm.response.json().count",
+									"});",
+									"",
+									"const changeCountValue = {",
+									"  url: url,",
+									"  method: 'GET',",
+									"  body: {",
+									"    count: 80",
+									"  }",
+									"};",
+									"",
+									"pm.test(\"Change Count Value\", () => {",
+									"   pm.sendRequest(changeCountValue, function () {",
+									"    pm.response.to.have.status(200);",
+									"",
+									"    });",
+									"});",
+									"",
+									"",
+									"",
+									"pm.test(\"Response is ok\", () => {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://swapi.co/api/planets/",
+							"protocol": "http",
+							"host": [
+								"swapi",
+								"co"
+							],
+							"path": [
+								"api",
+								"planets",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
