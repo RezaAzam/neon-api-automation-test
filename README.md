@@ -48,7 +48,8 @@ newman run Neon.postman_collection.json -e QA.postman_environment.json
 - Neon.postman_collection.json --> Its a file with cenarious
 - QA.postman_environment.json --> Its a file with environment used on tests
 
-
+### PlayList listened to do this project: ###
+[Deezer Frank Sinatra](https://www.deezer.com/artist/617?utm_source=deezer&utm_content=artist-617&utm_term=1624798546_1543511563&utm_medium=web)
 
 ## Contributing
 
@@ -61,5 +62,4 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 ## Authors
 
 * **Luiz Lohn** - [My Web Site](https://luizlohn.com.br)
-
 My repositories [Github](https://github.com/luizlohn).
